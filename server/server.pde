@@ -21,9 +21,6 @@ class Group {
     b.write(0);
     alive = true;
   }
-  void killA() {
-    a.write(255);
-  }
 
   void broadcast() {
     if (a.available() > 0 && alive) { 
@@ -41,7 +38,7 @@ void setup() {
   clients = new ArrayList<Client>();
   groups  = new ArrayList<Group>();
 
-  frameRate(30);
+  frameRate(50);
   font = createFont("Georgia", 32);
   textFont(font);
   textAlign(CENTER, CENTER);
@@ -57,7 +54,7 @@ void draw() {
     clients.remove(0);
   }
 
-  for (int i=0; i < groups.size (); i++) groups.get(i).broadcast();
+  for (int i=0; i < groups.size(); i++) groups.get(i).broadcast();
   
   background(0);
   text("groups: "+str(groups.size()), width/2, height/2);

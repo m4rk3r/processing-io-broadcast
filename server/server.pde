@@ -74,21 +74,21 @@ void disconnectEvent(Client client) {
   print("Client disconnected");
   if (clients.contains(client)) {
     clients.remove(client);
-  }
-
-  for (int i=0; i < groups.size (); i++) {
-    Group g = groups.get(i);
-    if (g.a == client) {
-      g.alive = false;
-      g.b.write(255);
-      clients.add(g.b);
-      groups.remove(g);
-    } else if (g.b == client) {
-      g.alive = false;
-      g.a.write(255);
-      clients.add(g.a);
-      groups.remove(g);
-    }
+  }else{
+      for (int i=0; i < groups.size (); i++) {
+        Group g = groups.get(i);
+        if (g.a == client) {
+          g.alive = false;
+          g.b.write(255);
+          clients.add(g.b);
+          groups.remove(g);
+        } else if (g.b == client) {
+          g.alive = false;
+          g.a.write(255);
+          clients.add(g.a);
+          groups.remove(g);
+        }
+      }
   }
 }
 

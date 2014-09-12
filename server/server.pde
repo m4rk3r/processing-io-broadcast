@@ -54,8 +54,8 @@ void draw() {
     clients.remove(0);
   }
 
-  for (int i=0; i < groups.size(); i++) groups.get(i).broadcast();
-  
+  for (int i=0; i < groups.size (); i++) groups.get(i).broadcast();
+
   background(0);
   text("groups: "+str(groups.size()), width/2, height/2);
   text("queued: "+str(clients.size()), width/2, height*0.25);
@@ -74,21 +74,20 @@ void disconnectEvent(Client client) {
   print("Client disconnected");
   if (clients.contains(client)) {
     clients.remove(client);
-  }else{
-      for (int i=0; i < groups.size (); i++) {
-        Group g = groups.get(i);
-        if (g.a == client) {
-          g.alive = false;
-          g.b.write(255);
-          clients.add(g.b);
-          groups.remove(g);
-        } else if (g.b == client) {
-          g.alive = false;
-          g.a.write(255);
-          clients.add(g.a);
-          groups.remove(g);
-        }
+  } else {
+    for (int i=0; i < groups.size (); i++) {
+      Group g = groups.get(i);
+      if (g.a == client) {
+        g.alive = false;
+        g.b.write(255);
+        clients.add(g.b);
+        groups.remove(g);
+      } else if (g.b == client) {
+        g.alive = false;
+        g.a.write(255);
+        clients.add(g.a);
+        groups.remove(g);
       }
+    }
   }
 }
-

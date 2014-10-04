@@ -1,7 +1,5 @@
 basic relay system between processing & arudino, pairing clients in couplets.
 
-Basic example pairs arduino clients into sender/receiver groups, one sending analogIn values and the other 
-receiving and writing them out with analogOut.
+Basic example pairs arduino clients into sender/receiver groups, one sending analogIn values and the other receiving and writing them out with analogOut.
 
-A quick/potentially flawed implementation to demonstrate analog -> digital -> analog via blowing onto a piezo disk
-on one arduino and activating a DC motor (as fan) at roughly the same "windspeed".
+A quick/potentially flawed implementation to demonstrate analog -> digital -> analog via blowing onto a piezo disk on one arduino and activating a DC motor (as fan) at roughly the same "windspeed".
